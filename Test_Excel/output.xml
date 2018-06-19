@@ -1,0 +1,1449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180220 21:36:43.643" generator="Robot 3.0.2 (Python 2.7.8 on win32)">
+<suite source="D:\Robot_Scipts\Test_Excel\RobotTest.robot" id="s1" name="RobotTest">
+<kw type="setup" name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>http://newtours.demoaut.com/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180220 21:36:43.915" level="INFO">Opening browser 'chrome' to base url 'http://newtours.demoaut.com/'</msg>
+<status status="PASS" endtime="20180220 21:37:02.526" starttime="20180220 21:36:43.914"></status>
+</kw>
+<test id="s1-t1" name="Main">
+<kw type="setup" name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${Path}</arg>
+<arg>D:/Robot_Scipts/Test_Excel/</arg>
+</arguments>
+<msg timestamp="20180220 21:37:02.528" level="INFO">${Path} = D:/Robot_Scipts/Test_Excel/</msg>
+<status status="PASS" endtime="20180220 21:37:02.529" starttime="20180220 21:37:02.527"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="Selenium2Library">
+<doc>Sets the root output directory for captured screenshots.</doc>
+<arguments>
+<arg>${Path}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:37:02.530" starttime="20180220 21:37:02.529"></status>
+</kw>
+<kw name="Count All Data From Excel">
+<kw name="Open Excel" library="ExcelLibrary">
+<doc>Opens the Excel file from the path provided in the file name parameter.</doc>
+<arguments>
+<arg>D:\\Robot_Scipts\\Test_Excel\\DataTest.xls</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:37:02.546" starttime="20180220 21:37:02.530"></status>
+</kw>
+<kw name="Get Sheet Names" library="ExcelLibrary">
+<doc>Returns the names of all the worksheets in the current workbook.</doc>
+<assign>
+<var>@{SheetName}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.546" level="INFO">@{SheetName} = [ Sheet1 | Sheet2 ]</msg>
+<status status="PASS" endtime="20180220 21:37:02.546" starttime="20180220 21:37:02.546"></status>
+</kw>
+<kw name="Get Row Count" library="ExcelLibrary">
+<doc>Returns the specific number of rows of the sheet name specified.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+</arguments>
+<assign>
+<var>${AllRow}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.548" level="INFO">${AllRow} = 3</msg>
+<status status="PASS" endtime="20180220 21:37:02.548" starttime="20180220 21:37:02.547"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>@{SheetName}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:02.549" level="INFO">@{SheetName} = [ Sheet1 | Sheet2 ]</msg>
+<status status="PASS" endtime="20180220 21:37:02.550" starttime="20180220 21:37:02.548"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${AllRow}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:02.551" level="INFO">${AllRow} = 3</msg>
+<status status="PASS" endtime="20180220 21:37:02.551" starttime="20180220 21:37:02.550"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:37:02.551" starttime="20180220 21:37:02.530"></status>
+</kw>
+<kw type="for" name="${iterarion} IN RANGE [ 1 | ${AllRow} ]">
+<kw type="foritem" name="${iterarion} = 1">
+<kw name="Get Data From Excel">
+<arguments>
+<arg>${iterarion}</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>@{CusFirstName}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.553" level="INFO">@{CusFirstName} = [ ]</msg>
+<status status="PASS" endtime="20180220 21:37:02.553" starttime="20180220 21:37:02.552"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>@{CusLastName}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.553" level="INFO">@{CusLastName} = [ ]</msg>
+<status status="PASS" endtime="20180220 21:37:02.553" starttime="20180220 21:37:02.553"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>0</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${User}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.554" level="INFO">${User} = mercury</msg>
+<status status="PASS" endtime="20180220 21:37:02.554" starttime="20180220 21:37:02.553"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>1</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${Password}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.554" level="INFO">${Password} = mercury</msg>
+<status status="PASS" endtime="20180220 21:37:02.554" starttime="20180220 21:37:02.554"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>2</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${FromPort}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.555" level="INFO">${FromPort} = Frankfurt</msg>
+<status status="PASS" endtime="20180220 21:37:02.555" starttime="20180220 21:37:02.555"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>3</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${ToPort}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.555" level="INFO">${ToPort} = Paris</msg>
+<status status="PASS" endtime="20180220 21:37:02.556" starttime="20180220 21:37:02.555"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>4</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${Service}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.556" level="INFO">${Service} = Business</msg>
+<status status="PASS" endtime="20180220 21:37:02.556" starttime="20180220 21:37:02.556"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>5</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${Depart}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.557" level="INFO">${Depart} = Pangea Airlines$362$274$9:17</msg>
+<status status="PASS" endtime="20180220 21:37:02.557" starttime="20180220 21:37:02.556"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>6</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${Returen}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.557" level="INFO">${Returen} = Unified Airlines$633$303$18:44</msg>
+<status status="PASS" endtime="20180220 21:37:02.557" starttime="20180220 21:37:02.557"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>7</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${Name1}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.558" level="INFO">${Name1} = Mr.John</msg>
+<status status="PASS" endtime="20180220 21:37:02.558" starttime="20180220 21:37:02.557"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>8</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${LastName1}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.559" level="INFO">${LastName1} = Woo</msg>
+<status status="PASS" endtime="20180220 21:37:02.559" starttime="20180220 21:37:02.558"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>9</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${Name2}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.559" level="INFO">${Name2} = Miss.Anna</msg>
+<status status="PASS" endtime="20180220 21:37:02.559" starttime="20180220 21:37:02.559"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>10</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${LastName2}</var>
+</assign>
+<msg timestamp="20180220 21:37:02.560" level="INFO">${LastName2} = Lintan</msg>
+<status status="PASS" endtime="20180220 21:37:02.560" starttime="20180220 21:37:02.559"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${CusFirstName}</arg>
+<arg>${Name1}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:37:02.560" starttime="20180220 21:37:02.560"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${CusFirstName}</arg>
+<arg>${Name2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:37:02.561" starttime="20180220 21:37:02.560"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${CusLastName}</arg>
+<arg>${LastName1}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:37:02.561" starttime="20180220 21:37:02.561"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${CusLastName}</arg>
+<arg>${LastName2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:37:02.562" starttime="20180220 21:37:02.561"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${User}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:02.562" level="INFO">${User} = mercury</msg>
+<status status="PASS" endtime="20180220 21:37:02.562" starttime="20180220 21:37:02.562"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${Password}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:02.563" level="INFO">${Password} = mercury</msg>
+<status status="PASS" endtime="20180220 21:37:02.563" starttime="20180220 21:37:02.563"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${FromPort}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:02.564" level="INFO">${FromPort} = Frankfurt</msg>
+<status status="PASS" endtime="20180220 21:37:02.564" starttime="20180220 21:37:02.563"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${ToPort}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:02.564" level="INFO">${ToPort} = Paris</msg>
+<status status="PASS" endtime="20180220 21:37:02.565" starttime="20180220 21:37:02.564"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${Service}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:02.565" level="INFO">${Service} = Business</msg>
+<status status="PASS" endtime="20180220 21:37:02.565" starttime="20180220 21:37:02.565"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${Depart}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:02.566" level="INFO">${Depart} = Pangea Airlines$362$274$9:17</msg>
+<status status="PASS" endtime="20180220 21:37:02.566" starttime="20180220 21:37:02.566"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${Returen}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:02.566" level="INFO">${Returen} = Unified Airlines$633$303$18:44</msg>
+<status status="PASS" endtime="20180220 21:37:02.567" starttime="20180220 21:37:02.566"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${CusFirstName}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:02.567" level="INFO">${CusFirstName} = [u'Mr.John', u'Miss.Anna']</msg>
+<status status="PASS" endtime="20180220 21:37:02.567" starttime="20180220 21:37:02.567"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${CusLastName}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:02.568" level="INFO">${CusLastName} = [u'Woo', u'Lintan']</msg>
+<status status="PASS" endtime="20180220 21:37:02.568" starttime="20180220 21:37:02.567"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Set Suite Variable</arg>
+<arg>${Name1}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:37:02.568" starttime="20180220 21:37:02.568"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Set Suite Variable</arg>
+<arg>${LastName1}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:37:02.568" starttime="20180220 21:37:02.568"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Set Suite Variable</arg>
+<arg>${Name2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:37:02.569" starttime="20180220 21:37:02.568"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Set Suite Variable</arg>
+<arg>${LastName2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:37:02.569" starttime="20180220 21:37:02.569"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:37:02.569" starttime="20180220 21:37:02.552"></status>
+</kw>
+<kw name="Login">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>name=userName</arg>
+<arg>timeout=30</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:37:02.617" starttime="20180220 21:37:02.569"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=userName</arg>
+<arg>${User}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:02.618" level="INFO">Typing text 'mercury' into text field 'name=userName'</msg>
+<status status="PASS" endtime="20180220 21:37:02.739" starttime="20180220 21:37:02.618"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>${Password}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:02.740" level="INFO">Typing text 'mercury' into text field 'name=password'</msg>
+<status status="PASS" endtime="20180220 21:37:02.874" starttime="20180220 21:37:02.739"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180220 21:37:03.182" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180220 21:37:03.183" starttime="20180220 21:37:02.874"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>name=login</arg>
+</arguments>
+<msg timestamp="20180220 21:37:03.183" level="INFO">Clicking element 'name=login'.</msg>
+<status status="PASS" endtime="20180220 21:37:21.064" starttime="20180220 21:37:03.183"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:37:21.064" starttime="20180220 21:37:02.569"></status>
+</kw>
+<kw name="Flight Finder">
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Flight Finder</arg>
+<arg>timeout=30</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:37:21.092" starttime="20180220 21:37:21.065"></status>
+</kw>
+<kw name="Select Radio Button" library="Selenium2Library">
+<doc>Sets selection of radio button group identified by `group_name` to `value`.</doc>
+<arguments>
+<arg>tripType</arg>
+<arg>oneway</arg>
+</arguments>
+<msg timestamp="20180220 21:37:21.092" level="INFO">Selecting 'oneway' from radio button 'tripType'.</msg>
+<status status="PASS" endtime="20180220 21:37:21.191" starttime="20180220 21:37:21.092"></status>
+</kw>
+<kw name="Select From List By Value" library="Selenium2Library">
+<doc>Selects `*values` from list identified by `locator`</doc>
+<arguments>
+<arg>name=passCount</arg>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20180220 21:37:21.193" level="INFO">Selecting value(s) '2' from list 'name=passCount'.</msg>
+<status status="PASS" endtime="20180220 21:37:21.317" starttime="20180220 21:37:21.192"></status>
+</kw>
+<kw name="Select From List By Value" library="Selenium2Library">
+<doc>Selects `*values` from list identified by `locator`</doc>
+<arguments>
+<arg>name=fromPort</arg>
+<arg>${FromPort}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:21.319" level="INFO">Selecting value(s) 'Frankfurt' from list 'name=fromPort'.</msg>
+<status status="PASS" endtime="20180220 21:37:21.440" starttime="20180220 21:37:21.318"></status>
+</kw>
+<kw name="Select From List By Value" library="Selenium2Library">
+<doc>Selects `*values` from list identified by `locator`</doc>
+<arguments>
+<arg>name=toPort</arg>
+<arg>${ToPort}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:21.442" level="INFO">Selecting value(s) 'Paris' from list 'name=toPort'.</msg>
+<status status="PASS" endtime="20180220 21:37:21.567" starttime="20180220 21:37:21.441"></status>
+</kw>
+<kw name="Select Radio Button" library="Selenium2Library">
+<doc>Sets selection of radio button group identified by `group_name` to `value`.</doc>
+<arguments>
+<arg>servClass</arg>
+<arg>${Service}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:21.568" level="INFO">Selecting 'Business' from radio button 'servClass'.</msg>
+<status status="PASS" endtime="20180220 21:37:21.670" starttime="20180220 21:37:21.568"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180220 21:37:21.914" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180220 21:37:21.914" starttime="20180220 21:37:21.670"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>name=findFlights</arg>
+</arguments>
+<msg timestamp="20180220 21:37:21.915" level="INFO">Clicking element 'name=findFlights'.</msg>
+<status status="PASS" endtime="20180220 21:37:38.475" starttime="20180220 21:37:21.915"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:37:38.475" starttime="20180220 21:37:21.065"></status>
+</kw>
+<kw name="Select Flight">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//img[@src="/images/masts/mast_selectflight.gif"]</arg>
+<arg>timeout=30</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:37:38.520" starttime="20180220 21:37:38.476"></status>
+</kw>
+<kw name="Select Radio Button" library="Selenium2Library">
+<doc>Sets selection of radio button group identified by `group_name` to `value`.</doc>
+<arguments>
+<arg>outFlight</arg>
+<arg>${Depart}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:38.520" level="INFO">Selecting 'Pangea Airlines$362$274$9:17' from radio button 'outFlight'.</msg>
+<status status="PASS" endtime="20180220 21:37:38.631" starttime="20180220 21:37:38.520"></status>
+</kw>
+<kw name="Select Radio Button" library="Selenium2Library">
+<doc>Sets selection of radio button group identified by `group_name` to `value`.</doc>
+<arguments>
+<arg>inFlight</arg>
+<arg>${Returen}</arg>
+</arguments>
+<msg timestamp="20180220 21:37:38.632" level="INFO">Selecting 'Unified Airlines$633$303$18:44' from radio button 'inFlight'.</msg>
+<status status="PASS" endtime="20180220 21:37:38.736" starttime="20180220 21:37:38.631"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180220 21:37:38.977" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180220 21:37:38.977" starttime="20180220 21:37:38.737"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>name=reserveFlights</arg>
+</arguments>
+<msg timestamp="20180220 21:37:38.978" level="INFO">Clicking element 'name=reserveFlights'.</msg>
+<status status="PASS" endtime="20180220 21:38:14.221" starttime="20180220 21:37:38.977"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:14.221" starttime="20180220 21:37:38.475"></status>
+</kw>
+<kw name="Book a Flight">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//img[@src="/images/masts/mast_book.gif"]</arg>
+<arg>timeout=30</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:14.265" starttime="20180220 21:38:14.222"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 0 | 2 ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${i}==0</arg>
+<arg>Input Text</arg>
+<arg>name=passFirst${i}</arg>
+<arg>${Name1}</arg>
+<arg>ELSE</arg>
+<arg>Input Text</arg>
+<arg>name=passFirst${i}</arg>
+<arg>${Name2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:14.266" starttime="20180220 21:38:14.266"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${i}==0</arg>
+<arg>Input Text</arg>
+<arg>name=passLast${i}</arg>
+<arg>${LastName1}</arg>
+<arg>ELSE</arg>
+<arg>Input Text</arg>
+<arg>name=passLast${i}</arg>
+<arg>${LastName2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:14.266" starttime="20180220 21:38:14.266"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=passFirst${i}</arg>
+<arg>@{CusFirstName}[${i}]</arg>
+</arguments>
+<msg timestamp="20180220 21:38:14.267" level="INFO">Typing text 'Mr.John' into text field 'name=passFirst0'</msg>
+<status status="PASS" endtime="20180220 21:38:14.451" starttime="20180220 21:38:14.266"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=passLast${i}</arg>
+<arg>@{CusLastName}[${i}]</arg>
+</arguments>
+<msg timestamp="20180220 21:38:14.452" level="INFO">Typing text 'Woo' into text field 'name=passLast0'</msg>
+<status status="PASS" endtime="20180220 21:38:14.575" starttime="20180220 21:38:14.452"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:14.575" starttime="20180220 21:38:14.266"></status>
+</kw>
+<kw type="foritem" name="${i} = 1">
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${i}==0</arg>
+<arg>Input Text</arg>
+<arg>name=passFirst${i}</arg>
+<arg>${Name1}</arg>
+<arg>ELSE</arg>
+<arg>Input Text</arg>
+<arg>name=passFirst${i}</arg>
+<arg>${Name2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:14.575" starttime="20180220 21:38:14.575"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${i}==0</arg>
+<arg>Input Text</arg>
+<arg>name=passLast${i}</arg>
+<arg>${LastName1}</arg>
+<arg>ELSE</arg>
+<arg>Input Text</arg>
+<arg>name=passLast${i}</arg>
+<arg>${LastName2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:14.575" starttime="20180220 21:38:14.575"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=passFirst${i}</arg>
+<arg>@{CusFirstName}[${i}]</arg>
+</arguments>
+<msg timestamp="20180220 21:38:14.576" level="INFO">Typing text 'Miss.Anna' into text field 'name=passFirst1'</msg>
+<status status="PASS" endtime="20180220 21:38:14.749" starttime="20180220 21:38:14.576"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=passLast${i}</arg>
+<arg>@{CusLastName}[${i}]</arg>
+</arguments>
+<msg timestamp="20180220 21:38:14.750" level="INFO">Typing text 'Lintan' into text field 'name=passLast1'</msg>
+<status status="PASS" endtime="20180220 21:38:14.899" starttime="20180220 21:38:14.749"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:14.899" starttime="20180220 21:38:14.575"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:14.899" starttime="20180220 21:38:14.265"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=creditnumber</arg>
+<arg>1234567890123456</arg>
+</arguments>
+<msg timestamp="20180220 21:38:14.899" level="INFO">Typing text '1234567890123456' into text field 'name=creditnumber'</msg>
+<status status="PASS" endtime="20180220 21:38:15.121" starttime="20180220 21:38:14.899"></status>
+</kw>
+<kw name="Select Checkbox" library="Selenium2Library">
+<doc>Selects checkbox identified by `locator`.</doc>
+<arguments>
+<arg>name=ticketLess</arg>
+</arguments>
+<msg timestamp="20180220 21:38:15.121" level="INFO">Selecting checkbox 'name=ticketLess'.</msg>
+<status status="PASS" endtime="20180220 21:38:15.252" starttime="20180220 21:38:15.121"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180220 21:38:15.513" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180220 21:38:15.514" starttime="20180220 21:38:15.253"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>name=buyFlights</arg>
+</arguments>
+<msg timestamp="20180220 21:38:15.514" level="INFO">Clicking element 'name=buyFlights'.</msg>
+<status status="PASS" endtime="20180220 21:38:17.185" starttime="20180220 21:38:15.514"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:17.185" starttime="20180220 21:38:14.222"></status>
+</kw>
+<kw name="Flight Confirmation">
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Flight Confirmation</arg>
+<arg>timeout=30</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:17.209" starttime="20180220 21:38:17.185"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=/html[1]/body[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[5]/td[1]/table[1]/tbody[1]/tr[3]/td[1]/font[1]</arg>
+</arguments>
+<assign>
+<var>${StrText}</var>
+</assign>
+<msg timestamp="20180220 21:38:17.257" level="INFO">${StrText} = Frankfurt to Paris
+2/20/2018 @ 9:17 w/ Pangea Airlines 362
+Business
+$274 each</msg>
+<status status="PASS" endtime="20180220 21:38:17.257" starttime="20180220 21:38:17.210"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=/html[1]/body[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[5]/td[1]/table[1]/tbody[1]/tr[12]/td[1]/table[1]/tbody[1]</arg>
+</arguments>
+<assign>
+<var>${StrText2}</var>
+</assign>
+<msg timestamp="20180220 21:38:17.320" level="INFO">${StrText2} = Total Taxes:  $95 USD
+Total Price (including taxes):  $1249 USD</msg>
+<status status="PASS" endtime="20180220 21:38:17.320" starttime="20180220 21:38:17.257"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=/html[1]/body[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[5]/td[1]/table[1]/tbody[1]/tr[12]/td[1]/table[1]/tbody[1]</arg>
+</arguments>
+<msg timestamp="20180220 21:38:17.321" level="INFO">Clicking element 'xpath=/html[1]/body[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[5]/td[1]/table[1]/tbody[1]/tr[12]/td[1]/table[1]/tbody[1]'.</msg>
+<status status="PASS" endtime="20180220 21:38:17.392" starttime="20180220 21:38:17.321"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180220 21:38:17.636" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180220 21:38:17.637" starttime="20180220 21:38:17.392"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:17.637" starttime="20180220 21:38:17.185"></status>
+</kw>
+<kw name="Logout">
+<arguments>
+<arg>${iterarion}</arg>
+</arguments>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>mercurysignoff.php</arg>
+</arguments>
+<msg timestamp="20180220 21:38:17.638" level="INFO">Clicking link 'mercurysignoff.php'.</msg>
+<status status="PASS" endtime="20180220 21:38:19.874" starttime="20180220 21:38:17.637"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//img[@src="/images/masts/mast_signon.gif"]</arg>
+<arg>timeout=30</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:19.921" starttime="20180220 21:38:19.874"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:19.921" starttime="20180220 21:38:17.637"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:19.921" starttime="20180220 21:37:02.552"></status>
+</kw>
+<kw type="foritem" name="${iterarion} = 2">
+<kw name="Get Data From Excel">
+<arguments>
+<arg>${iterarion}</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>@{CusFirstName}</var>
+</assign>
+<msg timestamp="20180220 21:38:19.922" level="INFO">@{CusFirstName} = [ ]</msg>
+<status status="PASS" endtime="20180220 21:38:19.922" starttime="20180220 21:38:19.922"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>@{CusLastName}</var>
+</assign>
+<msg timestamp="20180220 21:38:19.922" level="INFO">@{CusLastName} = [ ]</msg>
+<status status="PASS" endtime="20180220 21:38:19.922" starttime="20180220 21:38:19.922"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>0</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${User}</var>
+</assign>
+<msg timestamp="20180220 21:38:19.923" level="INFO">${User} = mercury</msg>
+<status status="PASS" endtime="20180220 21:38:19.923" starttime="20180220 21:38:19.922"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>1</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${Password}</var>
+</assign>
+<msg timestamp="20180220 21:38:19.923" level="INFO">${Password} = mercury</msg>
+<status status="PASS" endtime="20180220 21:38:19.923" starttime="20180220 21:38:19.923"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>2</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${FromPort}</var>
+</assign>
+<msg timestamp="20180220 21:38:19.924" level="INFO">${FromPort} = New York</msg>
+<status status="PASS" endtime="20180220 21:38:19.924" starttime="20180220 21:38:19.923"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>3</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${ToPort}</var>
+</assign>
+<msg timestamp="20180220 21:38:19.924" level="INFO">${ToPort} = Portland</msg>
+<status status="PASS" endtime="20180220 21:38:19.924" starttime="20180220 21:38:19.924"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>4</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${Service}</var>
+</assign>
+<msg timestamp="20180220 21:38:19.925" level="INFO">${Service} = First</msg>
+<status status="PASS" endtime="20180220 21:38:19.925" starttime="20180220 21:38:19.925"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>5</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${Depart}</var>
+</assign>
+<msg timestamp="20180220 21:38:19.925" level="INFO">${Depart} = Blue Skies Airlines$360$270$5:03</msg>
+<status status="PASS" endtime="20180220 21:38:19.925" starttime="20180220 21:38:19.925"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>6</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${Returen}</var>
+</assign>
+<msg timestamp="20180220 21:38:19.926" level="INFO">${Returen} = Blue Skies Airlines$631$273$14:30</msg>
+<status status="PASS" endtime="20180220 21:38:19.926" starttime="20180220 21:38:19.926"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>7</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${Name1}</var>
+</assign>
+<msg timestamp="20180220 21:38:19.926" level="INFO">${Name1} = Mr.Ben</msg>
+<status status="PASS" endtime="20180220 21:38:19.927" starttime="20180220 21:38:19.926"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>8</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${LastName1}</var>
+</assign>
+<msg timestamp="20180220 21:38:19.927" level="INFO">${LastName1} = Western</msg>
+<status status="PASS" endtime="20180220 21:38:19.927" starttime="20180220 21:38:19.927"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>9</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${Name2}</var>
+</assign>
+<msg timestamp="20180220 21:38:19.928" level="INFO">${Name2} = Miss.Janny</msg>
+<status status="PASS" endtime="20180220 21:38:19.928" starttime="20180220 21:38:19.927"></status>
+</kw>
+<kw name="Read Cell Data By Coordinates" library="ExcelLibrary">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>@{SheetName}[0]</arg>
+<arg>10</arg>
+<arg>${iterarion}</arg>
+</arguments>
+<assign>
+<var>${LastName2}</var>
+</assign>
+<msg timestamp="20180220 21:38:19.929" level="INFO">${LastName2} = ParkJung</msg>
+<status status="PASS" endtime="20180220 21:38:19.929" starttime="20180220 21:38:19.928"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${CusFirstName}</arg>
+<arg>${Name1}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:19.929" starttime="20180220 21:38:19.929"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${CusFirstName}</arg>
+<arg>${Name2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:19.930" starttime="20180220 21:38:19.929"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${CusLastName}</arg>
+<arg>${LastName1}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:19.930" starttime="20180220 21:38:19.930"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${CusLastName}</arg>
+<arg>${LastName2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:19.930" starttime="20180220 21:38:19.930"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${User}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:19.931" level="INFO">${User} = mercury</msg>
+<status status="PASS" endtime="20180220 21:38:19.931" starttime="20180220 21:38:19.931"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${Password}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:19.931" level="INFO">${Password} = mercury</msg>
+<status status="PASS" endtime="20180220 21:38:19.931" starttime="20180220 21:38:19.931"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${FromPort}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:19.932" level="INFO">${FromPort} = New York</msg>
+<status status="PASS" endtime="20180220 21:38:19.932" starttime="20180220 21:38:19.932"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${ToPort}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:19.932" level="INFO">${ToPort} = Portland</msg>
+<status status="PASS" endtime="20180220 21:38:19.932" starttime="20180220 21:38:19.932"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${Service}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:19.933" level="INFO">${Service} = First</msg>
+<status status="PASS" endtime="20180220 21:38:19.933" starttime="20180220 21:38:19.933"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${Depart}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:19.933" level="INFO">${Depart} = Blue Skies Airlines$360$270$5:03</msg>
+<status status="PASS" endtime="20180220 21:38:19.933" starttime="20180220 21:38:19.933"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${Returen}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:19.934" level="INFO">${Returen} = Blue Skies Airlines$631$273$14:30</msg>
+<status status="PASS" endtime="20180220 21:38:19.934" starttime="20180220 21:38:19.934"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${CusFirstName}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:19.934" level="INFO">${CusFirstName} = [u'Mr.Ben', u'Miss.Janny']</msg>
+<status status="PASS" endtime="20180220 21:38:19.934" starttime="20180220 21:38:19.934"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${CusLastName}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:19.935" level="INFO">${CusLastName} = [u'Western', u'ParkJung']</msg>
+<status status="PASS" endtime="20180220 21:38:19.935" starttime="20180220 21:38:19.934"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Set Suite Variable</arg>
+<arg>${Name1}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:19.935" starttime="20180220 21:38:19.935"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Set Suite Variable</arg>
+<arg>${LastName1}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:19.935" starttime="20180220 21:38:19.935"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Set Suite Variable</arg>
+<arg>${Name2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:19.936" starttime="20180220 21:38:19.935"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Set Suite Variable</arg>
+<arg>${LastName2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:19.936" starttime="20180220 21:38:19.936"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:19.936" starttime="20180220 21:38:19.921"></status>
+</kw>
+<kw name="Login">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>name=userName</arg>
+<arg>timeout=30</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:19.973" starttime="20180220 21:38:19.936"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=userName</arg>
+<arg>${User}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:19.974" level="INFO">Typing text 'mercury' into text field 'name=userName'</msg>
+<status status="PASS" endtime="20180220 21:38:20.077" starttime="20180220 21:38:19.973"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>${Password}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:20.078" level="INFO">Typing text 'mercury' into text field 'name=password'</msg>
+<status status="PASS" endtime="20180220 21:38:20.193" starttime="20180220 21:38:20.077"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180220 21:38:20.439" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180220 21:38:20.439" starttime="20180220 21:38:20.193"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>name=login</arg>
+</arguments>
+<msg timestamp="20180220 21:38:20.439" level="INFO">Clicking element 'name=login'.</msg>
+<status status="PASS" endtime="20180220 21:38:24.898" starttime="20180220 21:38:20.439"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:24.898" starttime="20180220 21:38:19.936"></status>
+</kw>
+<kw name="Flight Finder">
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Flight Finder</arg>
+<arg>timeout=30</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:24.921" starttime="20180220 21:38:24.898"></status>
+</kw>
+<kw name="Select Radio Button" library="Selenium2Library">
+<doc>Sets selection of radio button group identified by `group_name` to `value`.</doc>
+<arguments>
+<arg>tripType</arg>
+<arg>oneway</arg>
+</arguments>
+<msg timestamp="20180220 21:38:24.922" level="INFO">Selecting 'oneway' from radio button 'tripType'.</msg>
+<status status="PASS" endtime="20180220 21:38:25.017" starttime="20180220 21:38:24.921"></status>
+</kw>
+<kw name="Select From List By Value" library="Selenium2Library">
+<doc>Selects `*values` from list identified by `locator`</doc>
+<arguments>
+<arg>name=passCount</arg>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20180220 21:38:25.017" level="INFO">Selecting value(s) '2' from list 'name=passCount'.</msg>
+<status status="PASS" endtime="20180220 21:38:25.140" starttime="20180220 21:38:25.017"></status>
+</kw>
+<kw name="Select From List By Value" library="Selenium2Library">
+<doc>Selects `*values` from list identified by `locator`</doc>
+<arguments>
+<arg>name=fromPort</arg>
+<arg>${FromPort}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:25.141" level="INFO">Selecting value(s) 'New York' from list 'name=fromPort'.</msg>
+<status status="PASS" endtime="20180220 21:38:25.258" starttime="20180220 21:38:25.140"></status>
+</kw>
+<kw name="Select From List By Value" library="Selenium2Library">
+<doc>Selects `*values` from list identified by `locator`</doc>
+<arguments>
+<arg>name=toPort</arg>
+<arg>${ToPort}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:25.259" level="INFO">Selecting value(s) 'Portland' from list 'name=toPort'.</msg>
+<status status="PASS" endtime="20180220 21:38:25.379" starttime="20180220 21:38:25.259"></status>
+</kw>
+<kw name="Select Radio Button" library="Selenium2Library">
+<doc>Sets selection of radio button group identified by `group_name` to `value`.</doc>
+<arguments>
+<arg>servClass</arg>
+<arg>${Service}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:25.381" level="INFO">Selecting 'First' from radio button 'servClass'.</msg>
+<status status="PASS" endtime="20180220 21:38:25.481" starttime="20180220 21:38:25.380"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180220 21:38:25.738" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180220 21:38:25.738" starttime="20180220 21:38:25.482"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>name=findFlights</arg>
+</arguments>
+<msg timestamp="20180220 21:38:25.739" level="INFO">Clicking element 'name=findFlights'.</msg>
+<status status="PASS" endtime="20180220 21:38:27.370" starttime="20180220 21:38:25.739"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:27.370" starttime="20180220 21:38:24.898"></status>
+</kw>
+<kw name="Select Flight">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//img[@src="/images/masts/mast_selectflight.gif"]</arg>
+<arg>timeout=30</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:27.411" starttime="20180220 21:38:27.371"></status>
+</kw>
+<kw name="Select Radio Button" library="Selenium2Library">
+<doc>Sets selection of radio button group identified by `group_name` to `value`.</doc>
+<arguments>
+<arg>outFlight</arg>
+<arg>${Depart}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:27.412" level="INFO">Selecting 'Blue Skies Airlines$360$270$5:03' from radio button 'outFlight'.</msg>
+<status status="PASS" endtime="20180220 21:38:27.453" starttime="20180220 21:38:27.411"></status>
+</kw>
+<kw name="Select Radio Button" library="Selenium2Library">
+<doc>Sets selection of radio button group identified by `group_name` to `value`.</doc>
+<arguments>
+<arg>inFlight</arg>
+<arg>${Returen}</arg>
+</arguments>
+<msg timestamp="20180220 21:38:27.453" level="INFO">Selecting 'Blue Skies Airlines$631$273$14:30' from radio button 'inFlight'.</msg>
+<status status="PASS" endtime="20180220 21:38:27.551" starttime="20180220 21:38:27.453"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180220 21:38:27.795" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180220 21:38:27.796" starttime="20180220 21:38:27.551"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>name=reserveFlights</arg>
+</arguments>
+<msg timestamp="20180220 21:38:27.796" level="INFO">Clicking element 'name=reserveFlights'.</msg>
+<status status="PASS" endtime="20180220 21:38:30.183" starttime="20180220 21:38:27.796"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:30.183" starttime="20180220 21:38:27.370"></status>
+</kw>
+<kw name="Book a Flight">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//img[@src="/images/masts/mast_book.gif"]</arg>
+<arg>timeout=30</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:30.222" starttime="20180220 21:38:30.184"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 0 | 2 ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${i}==0</arg>
+<arg>Input Text</arg>
+<arg>name=passFirst${i}</arg>
+<arg>${Name1}</arg>
+<arg>ELSE</arg>
+<arg>Input Text</arg>
+<arg>name=passFirst${i}</arg>
+<arg>${Name2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:30.223" starttime="20180220 21:38:30.223"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${i}==0</arg>
+<arg>Input Text</arg>
+<arg>name=passLast${i}</arg>
+<arg>${LastName1}</arg>
+<arg>ELSE</arg>
+<arg>Input Text</arg>
+<arg>name=passLast${i}</arg>
+<arg>${LastName2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:30.224" starttime="20180220 21:38:30.223"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=passFirst${i}</arg>
+<arg>@{CusFirstName}[${i}]</arg>
+</arguments>
+<msg timestamp="20180220 21:38:30.224" level="INFO">Typing text 'Mr.Ben' into text field 'name=passFirst0'</msg>
+<status status="PASS" endtime="20180220 21:38:30.382" starttime="20180220 21:38:30.224"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=passLast${i}</arg>
+<arg>@{CusLastName}[${i}]</arg>
+</arguments>
+<msg timestamp="20180220 21:38:30.383" level="INFO">Typing text 'Western' into text field 'name=passLast0'</msg>
+<status status="PASS" endtime="20180220 21:38:30.533" starttime="20180220 21:38:30.382"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:30.534" starttime="20180220 21:38:30.223"></status>
+</kw>
+<kw type="foritem" name="${i} = 1">
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${i}==0</arg>
+<arg>Input Text</arg>
+<arg>name=passFirst${i}</arg>
+<arg>${Name1}</arg>
+<arg>ELSE</arg>
+<arg>Input Text</arg>
+<arg>name=passFirst${i}</arg>
+<arg>${Name2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:30.534" starttime="20180220 21:38:30.534"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Run Keyword If</arg>
+<arg>${i}==0</arg>
+<arg>Input Text</arg>
+<arg>name=passLast${i}</arg>
+<arg>${LastName1}</arg>
+<arg>ELSE</arg>
+<arg>Input Text</arg>
+<arg>name=passLast${i}</arg>
+<arg>${LastName2}</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:30.534" starttime="20180220 21:38:30.534"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=passFirst${i}</arg>
+<arg>@{CusFirstName}[${i}]</arg>
+</arguments>
+<msg timestamp="20180220 21:38:30.535" level="INFO">Typing text 'Miss.Janny' into text field 'name=passFirst1'</msg>
+<status status="PASS" endtime="20180220 21:38:30.708" starttime="20180220 21:38:30.535"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=passLast${i}</arg>
+<arg>@{CusLastName}[${i}]</arg>
+</arguments>
+<msg timestamp="20180220 21:38:30.708" level="INFO">Typing text 'ParkJung' into text field 'name=passLast1'</msg>
+<status status="PASS" endtime="20180220 21:38:30.870" starttime="20180220 21:38:30.708"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:30.870" starttime="20180220 21:38:30.534"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:30.870" starttime="20180220 21:38:30.223"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=creditnumber</arg>
+<arg>1234567890123456</arg>
+</arguments>
+<msg timestamp="20180220 21:38:30.871" level="INFO">Typing text '1234567890123456' into text field 'name=creditnumber'</msg>
+<status status="PASS" endtime="20180220 21:38:31.075" starttime="20180220 21:38:30.871"></status>
+</kw>
+<kw name="Select Checkbox" library="Selenium2Library">
+<doc>Selects checkbox identified by `locator`.</doc>
+<arguments>
+<arg>name=ticketLess</arg>
+</arguments>
+<msg timestamp="20180220 21:38:31.076" level="INFO">Selecting checkbox 'name=ticketLess'.</msg>
+<status status="PASS" endtime="20180220 21:38:31.190" starttime="20180220 21:38:31.076"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180220 21:38:31.437" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180220 21:38:31.437" starttime="20180220 21:38:31.190"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>name=buyFlights</arg>
+</arguments>
+<msg timestamp="20180220 21:38:31.437" level="INFO">Clicking element 'name=buyFlights'.</msg>
+<status status="PASS" endtime="20180220 21:38:33.101" starttime="20180220 21:38:31.437"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:33.101" starttime="20180220 21:38:30.183"></status>
+</kw>
+<kw name="Flight Confirmation">
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Flight Confirmation</arg>
+<arg>timeout=30</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:33.121" starttime="20180220 21:38:33.102"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=/html[1]/body[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[5]/td[1]/table[1]/tbody[1]/tr[3]/td[1]/font[1]</arg>
+</arguments>
+<assign>
+<var>${StrText}</var>
+</assign>
+<msg timestamp="20180220 21:38:33.166" level="INFO">${StrText} = New York to Portland
+2/20/2018 @ 5:03 w/ Blue Skies Airlines 360
+First
+$270 each</msg>
+<status status="PASS" endtime="20180220 21:38:33.166" starttime="20180220 21:38:33.122"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=/html[1]/body[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[5]/td[1]/table[1]/tbody[1]/tr[12]/td[1]/table[1]/tbody[1]</arg>
+</arguments>
+<assign>
+<var>${StrText2}</var>
+</assign>
+<msg timestamp="20180220 21:38:33.220" level="INFO">${StrText2} = Total Taxes:  $89 USD
+Total Price (including taxes):  $1175 USD</msg>
+<status status="PASS" endtime="20180220 21:38:33.220" starttime="20180220 21:38:33.166"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=/html[1]/body[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[5]/td[1]/table[1]/tbody[1]/tr[12]/td[1]/table[1]/tbody[1]</arg>
+</arguments>
+<msg timestamp="20180220 21:38:33.220" level="INFO">Clicking element 'xpath=/html[1]/body[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[4]/td[1]/table[1]/tbody[1]/tr[1]/td[2]/table[1]/tbody[1]/tr[5]/td[1]/table[1]/tbody[1]/tr[12]/td[1]/table[1]/tbody[1]'.</msg>
+<status status="PASS" endtime="20180220 21:38:33.290" starttime="20180220 21:38:33.220"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180220 21:38:33.534" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180220 21:38:33.535" starttime="20180220 21:38:33.290"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:33.535" starttime="20180220 21:38:33.102"></status>
+</kw>
+<kw name="Logout">
+<arguments>
+<arg>${iterarion}</arg>
+</arguments>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>mercurysignoff.php</arg>
+</arguments>
+<msg timestamp="20180220 21:38:33.536" level="INFO">Clicking link 'mercurysignoff.php'.</msg>
+<status status="PASS" endtime="20180220 21:38:35.853" starttime="20180220 21:38:33.535"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//img[@src="/images/masts/mast_signon.gif"]</arg>
+<arg>timeout=30</arg>
+</arguments>
+<status status="PASS" endtime="20180220 21:38:35.892" starttime="20180220 21:38:35.853"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:35.893" starttime="20180220 21:38:33.535"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:35.893" starttime="20180220 21:38:19.921"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:35.893" starttime="20180220 21:37:02.552"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:35.893" critical="yes" starttime="20180220 21:37:02.527"></status>
+</test>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20180220 21:38:38.945" starttime="20180220 21:38:35.894"></status>
+</kw>
+<status status="PASS" endtime="20180220 21:38:38.945" starttime="20180220 21:36:43.646"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="RobotTest" pass="1">RobotTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
